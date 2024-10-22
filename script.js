@@ -1,25 +1,27 @@
 const onOffbutton = document.getElementById('btn');
-console.log(onOffbutton)
 const lampImg = document.getElementById('lampimg');
-console.log(lampImg)
 
-onOffbutton.addEventListener('click',function(){
-    lampImg.classList.toggle('on');
+let lampOn = false;
 
-    if (lampImg.classList.contains('on')) {
-      onOffbutton.innerText = 'Spegni';
-      onOffbutton.classList.remove('btn-warning')
-      onOffbutton.classList.add('btn-danger')
-      lampImg.src = "./img/yellow_lamp.png"
+onOffbutton.addEventListener('click', function () {
+    
 
-    } else {
-      onOffbutton.innerText = 'Accendi';
-      lampImg.src = "./img/white_lamp.png"
-      onOffbutton.classList.remove('btn-danger')
-      onOffbutton.classList.add('btn-warning')
+    if (lampOn === false) {
+        onOffbutton.innerText = 'Spegni';
+        onOffbutton.classList.remove('btn-warning');
+        onOffbutton.classList.add('btn-danger');
+        lampImg.src = "./img/yellow_lamp.png";
+        lampOn = true;
+
+    } else if (lampOn === true) {
+        onOffbutton.innerText = 'Accendi';
+        lampImg.src = "./img/white_lamp.png";
+        onOffbutton.classList.remove('btn-danger');
+        onOffbutton.classList.add('btn-warning');
+        lampOn = false;
     }
 
-   
+
 }
 );
-    
+
